@@ -13,11 +13,11 @@
     <!-- 查询结果 -->
     <el-table v-loading="listLoading" :data="list" element-loading-text="正在查询中。。。" border fit highlight-current-row>
 
-      <el-table-column align="center" label="品牌商ID" prop="id" />
+      <el-table-column align="center" label="厂商ID" prop="id" />
 
-      <el-table-column align="center" label="品牌商名称" prop="name" />
+      <el-table-column align="center" label="厂商名称" prop="name" />
 
-      <el-table-column align="center" property="picUrl" label="品牌商图片">
+      <el-table-column align="center" property="picUrl" label="厂商图片">
         <template slot-scope="scope">
           <img v-if="scope.row.picUrl" :src="scope.row.picUrl" width="80">
         </template>
@@ -25,7 +25,7 @@
 
       <el-table-column align="center" min-width="400px" label="介绍" prop="desc" />
 
-      <el-table-column align="center" label="底价" prop="floorPrice" />
+      <!-- <el-table-column align="center" label="底价" prop="floorPrice" /> -->
 
       <el-table-column align="center" label="操作" width="200" class-name="small-padding fixed-width">
         <template slot-scope="scope">
@@ -40,13 +40,13 @@
     <!-- 添加或修改对话框 -->
     <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogFormVisible">
       <el-form ref="dataForm" :rules="rules" :model="dataForm" status-icon label-position="left" label-width="100px" style="width: 400px; margin-left:50px;">
-        <el-form-item label="品牌商名称" prop="name">
+        <el-form-item label="厂商名称" prop="name">
           <el-input v-model="dataForm.name" />
         </el-form-item>
         <el-form-item label="介绍" prop="simpleDesc">
           <el-input v-model="dataForm.desc" />
         </el-form-item>
-        <el-form-item label="品牌商图片" prop="picUrl">
+        <el-form-item label="厂商图片" prop="picUrl">
           <el-upload
             :headers="headers"
             :action="uploadPath"
@@ -59,9 +59,9 @@
             <i v-else class="el-icon-plus avatar-uploader-icon" />
           </el-upload>
         </el-form-item>
-        <el-form-item label="底价" prop="floorPrice">
+        <!-- <el-form-item label="底价" prop="floorPrice">
           <el-input v-model="dataForm.floorPrice" />
-        </el-form-item>
+        </el-form-item> -->
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false">取消</el-button>
@@ -268,13 +268,12 @@ export default {
       this.downloadLoading = true
       import('@/vendor/Export2Excel').then(excel => {
         const tHeader = [
-          '品牌商ID',
-          '品牌商名称',
+          '厂商ID',
+          '厂商名称',
           '介绍',
-          '低价',
-          '品牌商图片'
+          '厂商图片'
         ]
-        const filterVal = ['id', 'name', 'desc', 'floorPrice', 'picUrl']
+        const filterVal = ['id', 'name', 'desc', 'picUrl']
         excel.export_json_to_excel2(
           tHeader,
           this.list,

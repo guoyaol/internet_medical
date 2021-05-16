@@ -1,0 +1,41 @@
+{
+    "data": {
+        "limit": 20,
+        "list": [
+            {
+                "id": 1000000001,
+                "name": "晋旭阳",
+                "avatar": "/sample/doctor/head1.png",
+                "mobile": "13183670990",
+                "gender": 1,
+                "address": "浙江省杭州市解放路88号",
+                "hospital": "浙江大学医学院附属第二医院",
+                "department": "皮肤科",
+                "description": "常见皮肤病及疑难皮肤病的诊断和治疗，尤其擅长毁容性皮肤病、过敏性及免疫性皮肤病，如激素依赖性皮炎、玫瑰痤疮、痤疮、白癜风、脱发、荨麻疹、湿疹、特应性皮炎、银屑病、红斑狼疮、硬皮病等。",
+                "qualification": 0,
+                "material": "/sample/doctor/valid_material.png",
+                "status": "1"
+            },
+    
+            {
+                "id": 1000000002,
+                "name": "林倚牟",
+                "avatar": "/sample/doctor/head2.png",
+                "mobile": "13836701920",
+                "gender": 1,
+                "address": "浙江省杭州市庆春东路3号",
+                "hospital": "浙江大学医学院附属邵逸夫医院",
+                "department": "呼吸科",
+                "description": "擅长间质性肺病、肺结节病、弥漫性泛细支气管炎、慢性阻塞性肺病、支气管扩张、支气管哮喘、肺部肿瘤、上呼吸道感染、肺部结节等疾病诊治。",
+                "qualification": 1,
+                "material": "/sample/doctor/invalid_material.png",
+                "status": "0"
+            }
+        ],
+        "page": 1,
+        "pages": 1,
+        "total": 1
+    },
+    "errno": 0,
+    "errmsg": "成功"
+}

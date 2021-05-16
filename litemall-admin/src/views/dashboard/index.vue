@@ -9,18 +9,18 @@
           </div>
           <div class="card-panel-description">
             <div class="card-panel-text">用户数量</div>
-            <count-to :start-val="0" :end-val="userTotal" :duration="2600" class="card-panel-num"/>
+            <count-to :start-val="0" :end-val="userTotal" :duration="2600" class="card-panel-num" />
           </div>
         </div>
       </el-col>
       <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
-        <div class="card-panel" @click="handleSetLineChartData('messages')">
+        <div class="card-panel" @click="handleSetLineChartData('doctor')">
           <div class="card-panel-icon-wrapper icon-message">
-            <svg-icon icon-class="message" class-name="card-panel-icon" />
+            <svg-icon icon-class="people" class-name="card-panel-icon" />
           </div>
           <div class="card-panel-description">
-            <div class="card-panel-text">商品数量</div>
-            <count-to :start-val="0" :end-val="goodsTotal" :duration="3000" class="card-panel-num"/>
+            <div class="card-panel-text">医生数量</div>
+            <count-to :start-val="0" :end-val="doctorTotal" :duration="3000" class="card-panel-num" />
           </div>
         </div>
       </el-col>
@@ -30,8 +30,8 @@
             <svg-icon icon-class="message" class-name="card-panel-icon" />
           </div>
           <div class="card-panel-description">
-            <div class="card-panel-text">货品数量</div>
-            <count-to :start-val="0" :end-val="productTotal" :duration="3200" class="card-panel-num"/>
+            <div class="card-panel-text">问诊数量</div>
+            <count-to :start-val="0" :end-val="inquiryTotal" :duration="3200" class="card-panel-num" />
           </div>
         </div>
       </el-col>
@@ -42,35 +42,48 @@
           </div>
           <div class="card-panel-description">
             <div class="card-panel-text">订单数量</div>
-            <count-to :start-val="0" :end-val="orderTotal" :duration="3600" class="card-panel-num"/>
+            <count-to :start-val="0" :end-val="orderTotal" :duration="3600" class="card-panel-num" />
           </div>
         </div>
       </el-col>
     </el-row>
+
+    <userChart />
+    <orderChart />
+    <!-- <goodsChart></goodsChart> -->
+
   </div>
 </template>
 
 <script>
 import { info } from '@/api/dashboard'
 import CountTo from 'vue-count-to'
+import userChart from '@/views/stat/user'
+import orderChart from '@/views/stat/order'
+import goodsChart from '@/views/stat/goods'
 
 export default {
   components: {
-    CountTo
+    CountTo,
+    userChart,
+    orderChart,
+    goodsChart
   },
   data() {
     return {
       userTotal: 0,
-      goodsTotal: 0,
-      productTotal: 0,
+      doctorTotal: 0,
+      inquiryTotal: 0,
       orderTotal: 0
     }
   },
   created() {
     info().then(response => {
       this.userTotal = response.data.data.userTotal
-      this.goodsTotal = response.data.data.goodsTotal
-      this.productTotal = response.data.data.productTotal
+      // this.doctorTotal = response.data.data.doctorTotal
+      // this.inquiryTotal = response.data.data.inquiryTotal
+      this.doctorTotal = 2
+      this.inquiryTotal = 0
       this.orderTotal = response.data.data.orderTotal
     })
   },

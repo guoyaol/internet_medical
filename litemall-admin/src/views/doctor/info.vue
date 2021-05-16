@@ -12,11 +12,11 @@
 
     <!-- 查询结果 -->
     <el-table v-loading="listLoading" :data="list" element-loading-text="正在查询中。。。" border fit highlight-current-row>
-      <el-table-column align="center" width="100px" label="用户ID" prop="id" sortable />
+      <el-table-column align="center" width="100px" label="医生ID" prop="id" sortable />
 
-      <el-table-column align="center" label="用户昵称" prop="nickname" />
+      <el-table-column align="center" label="姓名" prop="name" width="80" />
 
-      <el-table-column align="center" label="用户头像" width="80">
+      <el-table-column align="center" label="头像" width="80">
         <template slot-scope="scope">
           <el-avatar :src="scope.row.avatar" />
         </template>
@@ -24,13 +24,13 @@
 
       <el-table-column align="center" label="手机号码" prop="mobile" />
 
-      <el-table-column align="center" label="性别" prop="gender">
+      <el-table-column align="center" label="性别" prop="gender" width="80">
         <template slot-scope="scope">
           <el-tag>{{ genderDic[scope.row.gender] }}</el-tag>
         </template>
       </el-table-column>
 
-      <el-table-column align="center" label="生日" prop="birthday" />
+      <!-- <el-table-column align="center" label="生日" prop="birthday"/> -->
 
       <!-- <el-table-column align="center" label="用户等级" prop="userLevel">
         <template slot-scope="scope">
@@ -38,15 +38,26 @@
         </template>
       </el-table-column> -->
 
-      <el-table-column align="center" label="状态" prop="status">
+      <el-table-column align="center" label="地址" prop="address" />
+      <el-table-column align="center" label="医院" prop="hospital" />
+      <el-table-column align="center" label="科室" prop="department" width="80" />
+      <el-table-column align="center" label="简介" prop="description" width="300" />
+
+      <el-table-column align="center" label="资质" prop="qualification" width="80">
+        <template slot-scope="scope">
+          <el-tag>{{ qualificationDic[scope.row.qualification] }}</el-tag>
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" label="状态" prop="status" width="80">
         <template slot-scope="scope">
           <el-tag>{{ statusDic[scope.row.status] }}</el-tag>
         </template>
       </el-table-column>
 
-      <el-table-column align="center" label="健康档案" width="80" class-name="small-padding fixed-width">
+      <el-table-column align="center" label="认证材料" width="80" class-name="small-padding fixed-width">
         <template slot-scope="scope">
-          <el-button type="primary" size="mini" @click="handleRecord(scope.row)">查看</el-button>
+          <el-button type="primary" size="mini" @click="handleMaterialShow(scope.row)">查看</el-button>
         </template>
       </el-table-column>
 
@@ -89,59 +100,19 @@
       </div>
     </el-dialog>
 
-    <!-- 健康档案对话框 -->
-    <el-dialog :visible.sync="recordDialogVisible" title="健康档案">
-      <el-form ref="userDetail" :model="userDetail" status-icon label-position="left" label-width="100px" style="width: 400px; margin-left:50px;">
-        <el-form-item label="姓名">
-          <span>{{ userDetail.record.name }}</span>
-        </el-form-item>
-        <el-form-item label="年龄">
-          <span>{{ userDetail.record.age }}</span>
-        </el-form-item>
-        <el-form-item label="身高">
-          <span>{{ userDetail.record.height }}</span>
-        </el-form-item>
-        <el-form-item label="体重">
-          <span>{{ userDetail.record.weight }}</span>
-        </el-form-item>
-        <el-form-item label="BMI">
-          <span>{{ userDetail.record.bmi }}</span>
-        </el-form-item>
-        <el-form-item label="是否吸烟">
-          <span>{{ userDetail.record.smoke }}</span>
-        </el-form-item>
-        <el-form-item label="是否饮酒">
-          <span>{{ userDetail.record.drink }}</span>
-        </el-form-item>
-        <el-form-item label="是否已婚">
-          <span>{{ userDetail.record.marry }}</span>
-        </el-form-item>
-        <el-form-item label="是否生育">
-          <span>{{ userDetail.record.child }}</span>
-        </el-form-item>
-        <el-form-item label="慢性病">
-          <span>{{ userDetail.record.chronic }}</span>
-        </el-form-item>
-        <el-form-item label="药物过敏">
-          <span>{{ userDetail.record.allergy }}</span>
-        </el-form-item>
-        <el-form-item label="个人简介">
-          <span>{{ userDetail.record.desc }}</span>
-        </el-form-item>
-        <el-form-item label="过往病史">
-          <span>{{ userDetail.record.history }}</span>
-        </el-form-item>
-
-      </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button @click="recordDialogVisible = false">关闭</el-button>
+    <!-- 弹出认证材料 -->
+    <el-dialog title :visible.sync="materialWindowVisible" class="imgView-dialog" :modal="false">
+      <div class="main">
+        <img class="img" width="100%" :src="material">
       </div>
     </el-dialog>
+
   </div>
 </template>
 
 <script>
-import { fetchList, userDetail, updateUser } from '@/api/user'
+import { fetchList, userDetail, updateUser } from '@/api/doctor'
+// import axios from 'axios'
 import Pagination from '@/components/Pagination' // Secondary package based on el-pagination
 
 export default {
@@ -165,34 +136,13 @@ export default {
       genderDic: ['未知', '男', '女'],
       levelDic: ['普通用户', 'VIP用户', '高级VIP用户'],
       statusDic: ['可用', '禁用', '注销'],
+      qualificationDic: ['无', '有'],
       userDialogVisible: false,
       userDetail: {
-        'id': '',
-        'nickname': '',
-        'avatar': '',
-        'mobile': '',
-        'gender': '',
-        'status': '',
-        'birthday': '2003-03-12',
-        'record': {
-          'name': '',
-          'age': '',
-          'height': '',
-          'weight': '',
-          'bmi': '',
-          'smoke': '',
-          'drink': '',
-          'marry': '',
-          'child': '',
-          'chronic': '',
-          'allergy': '',
-          'desc': '',
-          'history': [
-            ''
-          ]
-        }
       },
-      recordDialogVisible: false
+      materialWindowVisible: false,
+      material: {
+      }
     }
   },
   created() {
@@ -202,8 +152,10 @@ export default {
     getList() {
       this.listLoading = true
       if (this.listQuery.userId) {
+        console.log('user id')
         userDetail(this.listQuery.userId).then(response => {
           this.list = []
+          console.log(response.data)
           if (response.data.data) {
             this.list.push(response.data.data)
             this.total = 1
@@ -219,6 +171,7 @@ export default {
           this.listLoading = false
         })
       } else {
+        console.log('not use id')
         fetchList(this.listQuery).then(response => {
           this.list = response.data.data.list
           this.total = response.data.data.total
@@ -228,8 +181,10 @@ export default {
           this.list = []
           this.total = 0
           this.listLoading = false
+          console.log(response.data)
         })
       }
+      console.log(this.list)
     },
     handleFilter() {
       this.listQuery.page = 1
@@ -264,10 +219,16 @@ export default {
           })
         })
     },
-    handleRecord(row) {
-      this.userDetail = row
-      this.recordDialogVisible = true
-      console.log(this.userDetail)
+    handleMaterialShow(row) {
+      this.material = row.material
+      this.materialWindowVisible = true
+    },
+    handleMaterialClose() {
+      this.materialWindowVisible = false
+      const self = this
+      setTimeout(function() {
+        self.material = ''
+      }, 100)
     }
   }
 }

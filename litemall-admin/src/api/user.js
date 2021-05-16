@@ -1,10 +1,20 @@
-import request from '@/utils/request'
+// import request from '@/utils/request'
+
+// export function fetchList(query) {
+//   return request({
+//     url: '/user/list',
+//     method: 'get',
+//     params: query
+//   })
+// }
+
+import request from '@/utils/staticRequest'
 
 export function fetchList(query) {
   return request({
-    url: '/user/list',
+    url: '/sample/user/user.json',
     method: 'get',
-    params: query
+    params: ''
   })
 }
 
@@ -12,7 +22,7 @@ export function userDetail(id) {
   return request({
     url: '/user/detail',
     method: 'get',
-    params: {id}
+    params: { id }
   })
 }
 
