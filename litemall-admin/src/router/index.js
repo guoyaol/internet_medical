@@ -321,7 +321,7 @@ export const asyncRoutes = [
         name: 'goodsComment',
         meta: {
           perms: ['GET /admin/comment/list', 'POST /admin/comment/delete'],
-          title: '商品评论',
+          title: '药品评论',
           noCache: true
         }
       }

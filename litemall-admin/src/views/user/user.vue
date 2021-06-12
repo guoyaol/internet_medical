@@ -173,7 +173,7 @@ export default {
         'mobile': '',
         'gender': '',
         'status': '',
-        'birthday': '2003-03-12',
+        'birthday': '',
         'record': {
           'name': '',
           'age': '',

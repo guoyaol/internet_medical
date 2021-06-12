@@ -50,7 +50,6 @@
 
     <userChart />
     <orderChart />
-    <!-- <goodsChart></goodsChart> -->
 
   </div>
 </template>
@@ -60,14 +59,12 @@ import { info } from '@/api/dashboard'
 import CountTo from 'vue-count-to'
 import userChart from '@/views/stat/user'
 import orderChart from '@/views/stat/order'
-import goodsChart from '@/views/stat/goods'
 
 export default {
   components: {
     CountTo,
     userChart,
-    orderChart,
-    goodsChart
+    orderChart
   },
   data() {
     return {
@@ -79,9 +76,10 @@ export default {
   },
   created() {
     info().then(response => {
-      this.userTotal = response.data.data.userTotal
+      // this.userTotal = response.data.data.userTotal
       // this.doctorTotal = response.data.data.doctorTotal
       // this.inquiryTotal = response.data.data.inquiryTotal
+      this.userTotal = 3
       this.doctorTotal = 2
       this.inquiryTotal = 0
       this.orderTotal = response.data.data.orderTotal
