@@ -1,73 +1,27 @@
 <template>
-  <div class="tab_home">
-    <div class="tal_class_searchBox">
-      <van-search placeholder="点击前往搜索"
-                  @click="$router.push({ name: 'search' })" />
-      <div class="tal_class_searchMask"></div>
-    </div>
-
-    <!-- <div class="goods-channel">
-      <div class="item"
-           @click="changeTabbar(channel)"
-           v-for="(channel, index) in shopInfos.channel"
-           :key="index">
-        <img :src="channel.iconUrl"
-             background-size="cover" />
-        <span>{{channel.name}}</span>
-      </div>
-    </div> -->
-
-    <van-panel title="按科室查找">
-      <div class="goods-channel">
-        <div class="item"
-           @click="changeDepartment()"
-            v-for="(department, index) in departmentInfos.list"
-            :key="index">
-          <img :src="department.iconUrl"
-              background-size="cover" />
-          <span style="font-size:10px">{{department.name}}</span>
-        </div>
-      </div>
-    </van-panel>
-
-    <van-panel title="资深名医">
-      <div v-for="(goodDoctor, index) in goodDoctors.list" :key="index">
+    <van-panel title="皮肤科">
+      <div v-for="(skinDoctor, index) in skinDoctors.list" :key="index">
         <div class="mingpian" style="padding: 8px;">
           <div class="picture">
-            <img :src="goodDoctor.avatar"
+            <img :src="skinDoctor.avatar"
                 class="image">
           </div>
           <div class="introduction">
-            <h3>医生：{{goodDoctor.name}}</h3>
-            <p> {{goodDoctor.description}}</p>
+            <h3>医生：{{skinDoctor.name}}</h3>
+            <p> {{skinDoctor.description}}</p>
             <div class="bottom clearfix">
               <br>
-              <van-button type="info" @click="changeAppointment()">立即预约</van-button>
+              <van-button type="info">立即预约</van-button>
             </div>
           </div>
         </div>
       </div>
     </van-panel>
     
-    <van-panel title="优质科普">
-      <van-swipe :autoplay="3000"
-                indicator-color="white">
-        <van-swipe-item v-for="(article, index) in articles.list"
-                        :key="index"
-                        @click="gotoArticle()">
-          <img :src="article.title"
-              style="height:180px">
-        </van-swipe-item>
-      </van-swipe>
-    </van-panel>
-
-
-  </div>
 </template>
 
 <script>
-import { getHome, goodsCategory, couponReceive } from '@/api/api';
-import { getDepartment, getGoodDoctors, getArticles } from '@/api/staticApi';
+import { getDepartment, getSkinDoctors } from '@/api/staticApi';
 import scrollFixed from '@/mixin/scroll-fixed';
 import _ from 'lodash';
 
@@ -88,8 +42,7 @@ import {
   Row,
   Col,
   Tag,
-  Button,
-  Cell
+  Button
 } from 'vant';
 
 export default {
@@ -97,10 +50,7 @@ export default {
 
   data() {
     return {
-      shopInfos: [],
-      departmentInfos: [],
-      goodDoctors: [],
-      articles: [],
+      skinDoctors: [],
       isLoading: false
     };
   },
@@ -141,29 +91,8 @@ export default {
       });
     },
     initViews() {
-      getHome().then(res => {
-        console.log("getHome data data")
-        console.log(res.data.data);
-        this.shopInfos = res.data.data;
-      });
-      getDepartment().then(res => {
-        this.departmentInfos = res.data.data;
-      });
-      getGoodDoctors().then(res => {
-        this.goodDoctors = res.data.data;
-      });
-      getArticles().then(res => {
-        this.articles = res.data.data;
-      });
-    },   
-    changeAppointment(){
-      this.$router.push({
-        name:'appointment'
-      });
-    },
-    gotoArticle() {
-      this.$router.push({
-        name: 'article'
+      getSkinDoctors().then(res => {
+        this.skinDoctors = res.data.data;
       });
     }
   },

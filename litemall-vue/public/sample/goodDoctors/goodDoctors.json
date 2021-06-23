@@ -1,0 +1,36 @@
+{
+    "data": {
+        "list": [
+            {
+                "id": 1000000006,
+                "name": "章北陵 ",
+                "avatar": "/sample/goodDoctors/head6.png",
+                "mobile": "13838385438",
+                "gender": 1,
+                "address": "四川省成都市顺城路14号",
+                "hospital": "华西医院 ",
+                "department": "骨科",
+                "description": "主任医生。利用外固定治疗各种骨科疑难杂症。",
+                "qualification": 0,
+                "material": "/sample/doctor/valid_material.png",
+                "status": "1"
+            },
+            {
+                "id": 1000000007,
+                "name": "林毅佰",
+                "avatar": "/sample/goodDoctors/head7.png",
+                "mobile": "15236568230",
+                "gender": 1,
+                "address": "北京市解放路34号",
+                "hospital": "解放军总医院",
+                "department": "心血管科",
+                "description": "主任医生。对心血管疑难、重症的诊治具有丰富的临床经验和娴熟的技能。",
+                "qualification": 0,
+                "material": "/sample/doctor/valid_material.png",
+                "status": "1"
+            }
+        ]
+    },
+    "errno": 0,
+    "errmsg": "成功"
+}

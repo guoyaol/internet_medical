@@ -22,7 +22,7 @@ export default {
       active: 0,
       tabbar: [
         {
-          name: '精选',
+          name: '问诊',
           path: '/',
           pathName: 'home',
           icon: 'compass-full',
@@ -30,7 +30,7 @@ export default {
           info: ''
         },
         {
-          name: '分类',
+          name: '买药',
           path: '/items',
           pathName: 'class',
           icon: 'class-full',

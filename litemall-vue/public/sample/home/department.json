@@ -1,0 +1,102 @@
+{
+    "data": {
+        "list": [
+            {
+                "id": 1,
+                "name": "皮肤科",
+                "iconUrl": "/sample/home/pf.png"
+            },
+    
+            {
+                "id": 2,
+                "name": "儿科",
+                "iconUrl": "/sample/home/e.png"
+            },
+
+	        {
+                "id": 3,
+                "name": "妇科",
+                "iconUrl": "/sample/home/f.png"
+            },
+
+ 	        {
+                "id": 4,
+                "name": "产科",
+                "iconUrl": "/sample/home/c.png"
+            },
+
+ 	        {
+                "id": 5,
+                "name": "泌尿外科",
+                "iconUrl": "/sample/home/mnw.png"
+            },
+     	    {
+                "id": 6,
+                "name": "骨科",
+                "iconUrl": "/sample/home/g.png"
+            },
+      	    {
+                "id": 7,
+                "name": "消化内科",
+                "iconUrl": "/sample/home/xhn.png"
+            },
+     	    {
+                "id": 8,
+                "name": "口腔科",
+                "iconUrl": "/sample/home/kq.png"
+            },
+      	    {
+                "id": 9,
+                "name": "耳鼻喉科",
+                "iconUrl": "/sample/home/ebyh.png"
+            },
+     	    {
+                "id": 10,
+                "name": "呼吸内科",
+                "iconUrl": "/sample/home/hxn.png"
+            },
+     	    {
+                "id": 11,
+                "name": "普通内科",
+                "iconUrl": "/sample/home/ptn.png"
+            },
+      	    {
+                "id": 12,
+                "name": "感染科",
+                "iconUrl": "/sample/home/gr.png"
+            },
+	        {
+                "id": 13,
+                "name": "内分泌科",
+                "iconUrl": "/sample/home/nfm.png"
+            },
+    	    {
+                "id": 14,
+                "name": "心血管科",
+                "iconUrl": "/sample/home/xxgn.png"
+            },
+    	    {
+                "id": 15,
+                "name": "神经外科",
+                "iconUrl": "/sample/home/sjw.png"
+            },
+    	    {
+                "id": 16,
+                "name": "神经内科",
+                "iconUrl": "/sample/home/sjn.png"
+            },
+    	    {
+                "id": 17,
+                "name": "肾脏内科",
+                "iconUrl": "/sample/home/szn.png"
+            },
+    	    {
+                "id": 18,
+                "name": "血液科",
+                "iconUrl": "/sample/home/xy.png"
+            }
+        ]
+    },
+    "errno": 0,
+    "errmsg": "成功"
+}
