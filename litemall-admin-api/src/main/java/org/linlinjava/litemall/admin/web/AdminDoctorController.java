@@ -7,8 +7,8 @@ import org.linlinjava.litemall.admin.annotation.RequiresPermissionsDesc;
 import org.linlinjava.litemall.core.util.ResponseUtil;
 import org.linlinjava.litemall.core.validator.Order;
 import org.linlinjava.litemall.core.validator.Sort;
-import org.linlinjava.litemall.db.domain.LitemallUser;
-import org.linlinjava.litemall.db.service.LitemallUserService;
+import org.linlinjava.litemall.db.domain.LitemallDoctor;
+import org.linlinjava.litemall.db.service.LitemallDoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,16 +23,16 @@ import java.util.List;
 import javax.validation.constraints.NotNull;
 
 @RestController
-@RequestMapping("/admin/user")
+@RequestMapping("/admin/doctor")
 @Validated
 public class AdminUserController {
-    private final Log logger = LogFactory.getLog(AdminUserController.class);
+    private final Log logger = LogFactory.getLog(AdminDcotorController.class);
 
     @Autowired
-    private LitemallUserService userService;
+    private LitemallDoctorService DoctorService;
 
-    @RequiresPermissions("admin:user:list")
-    @RequiresPermissionsDesc(menu = {"用户管理", "会员管理"}, button = "查询")
+    @RequiresPermissions("admin:doctor:list")
+    @RequiresPermissionsDesc(menu = {"用户管理", "医生管理"}, button = "查询")
     @GetMapping("/list")
     public Object list(String username, String mobile,
                        @RequestParam(defaultValue = "1") Integer page,
@@ -42,27 +42,17 @@ public class AdminUserController {
         List<LitemallUser> userList = userService.querySelective(username, mobile, page, limit, sort, order);
         return ResponseUtil.okList(userList);
     }
-    @RequiresPermissions("admin:user:list")
-    @RequiresPermissionsDesc(menu = {"用户管理", "会员管理"}, button = "详情")
+    @RequiresPermissions("admin:doctor:list")
+    @RequiresPermissionsDesc(menu = {"用户管理", "医生管理"}, button = "详情")
     @GetMapping("/detail")
     public Object userDetail(@NotNull Integer id) {
-    	LitemallUser user=userService.findById(id);
-        return ResponseUtil.ok(user);
+    	LitemallDoctor doctor=doctorService.findById(id);
+        return ResponseUtil.ok(doctor);
     }
-    @RequiresPermissions("admin:user:list")
-    @RequiresPermissionsDesc(menu = {"用户管理", "会员管理"}, button = "编辑")
+    @RequiresPermissions("admin:doctor:list")
+    @RequiresPermissionsDesc(menu = {"用户管理", "医生管理"}, button = "编辑")
     @PostMapping("/update")
-    public Object userUpdate(@RequestBody LitemallUser user) {
+    public Object doctorUpdate(@RequestBody LitemallDoctor doctor) {
         return ResponseUtil.ok(userService.updateById(user));
     }
-
-    @RequiresPermissions("admin:user:list")
-    @RequiresPermissionsDesc(menu = {"用户管理", "会员管理"}, button = "病人")
-    @PostMapping("/patientinfo")
-    public Object patient(@NotNull Integer id) {
-        LitemallUser user=userService.findById(id);
-        return ResponseUtil.ok(user);
-    }
-
-
 }
