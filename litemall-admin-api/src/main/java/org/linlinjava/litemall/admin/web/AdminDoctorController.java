@@ -25,7 +25,7 @@ import javax.validation.constraints.NotNull;
 @RestController
 @RequestMapping("/admin/doctor")
 @Validated
-public class AdminUserController {
+public class AdminDcotorController {
     private final Log logger = LogFactory.getLog(AdminDcotorController.class);
 
     @Autowired
@@ -34,18 +34,18 @@ public class AdminUserController {
     @RequiresPermissions("admin:doctor:list")
     @RequiresPermissionsDesc(menu = {"用户管理", "医生管理"}, button = "查询")
     @GetMapping("/list")
-    public Object list(String username, String mobile,
+    public Object list(String doctorname, String mobile,
                        @RequestParam(defaultValue = "1") Integer page,
                        @RequestParam(defaultValue = "10") Integer limit,
                        @Sort @RequestParam(defaultValue = "add_time") String sort,
                        @Order @RequestParam(defaultValue = "desc") String order) {
-        List<LitemallUser> userList = userService.querySelective(username, mobile, page, limit, sort, order);
-        return ResponseUtil.okList(userList);
+        List<LitemallDoctor> doctorList = doctorService.querySelective(doctorname, mobile, page, limit, sort, order);
+        return ResponseUtil.okList(doctorList);
     }
     @RequiresPermissions("admin:doctor:list")
     @RequiresPermissionsDesc(menu = {"用户管理", "医生管理"}, button = "详情")
     @GetMapping("/detail")
-    public Object userDetail(@NotNull Integer id) {
+    public Object doctorDetail(@NotNull Integer id) {
     	LitemallDoctor doctor=doctorService.findById(id);
         return ResponseUtil.ok(doctor);
     }
@@ -53,6 +53,6 @@ public class AdminUserController {
     @RequiresPermissionsDesc(menu = {"用户管理", "医生管理"}, button = "编辑")
     @PostMapping("/update")
     public Object doctorUpdate(@RequestBody LitemallDoctor doctor) {
-        return ResponseUtil.ok(userService.updateById(user));
+        return ResponseUtil.ok(doctorService.updateById(doctor));
     }
 }

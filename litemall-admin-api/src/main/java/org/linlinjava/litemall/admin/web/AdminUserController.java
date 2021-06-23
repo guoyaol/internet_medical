@@ -61,7 +61,8 @@ public class AdminUserController {
     @PostMapping("/patientinfo")
     public Object patient(@NotNull Integer id) {
         LitemallUser user=userService.findById(id);
-        return ResponseUtil.ok(user);
+        Object record=userService.findpatientinfo(id);
+        return ResponseUtil.ok(user,record);
     }
 
 
