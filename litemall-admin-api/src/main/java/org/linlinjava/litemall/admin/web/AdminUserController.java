@@ -55,4 +55,15 @@ public class AdminUserController {
     public Object userUpdate(@RequestBody LitemallUser user) {
         return ResponseUtil.ok(userService.updateById(user));
     }
+
+    @RequiresPermissions("admin:user:list")
+    @RequiresPermissionsDesc(menu = {"用户管理", "会员管理"}, button = "病人")
+    @PostMapping("/patientinfo")
+    public Object patient(@NotNull Integer id) {
+        LitemallUser user=userService.findById(id);
+        Object record=userService.findpatientinfo(id);
+        return ResponseUtil.ok(user,record);
+    }
+
+
 }

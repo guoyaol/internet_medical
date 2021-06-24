@@ -55,6 +55,16 @@ public class ResponseUtil {
         return obj;
     }
 
+
+    public static Object ok(Object user, Object record) {
+        Map<String, Object> obj = new HashMap<String, Object>();
+        obj.put("errno", 0);
+        obj.put("errmsg", "成功");
+        obj.put("user", user);
+        obj.put("record", record);
+        return obj;
+    }
+
     public static Object okList(List list) {
         Map<String, Object> data = new HashMap<String, Object>();
         data.put("list", list);

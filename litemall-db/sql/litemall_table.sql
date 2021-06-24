@@ -835,10 +835,10 @@ CREATE TABLE `litemall_patientinfo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户表的用户ID',
   `name` varchar(63) NOT NULL DEFAULT '' COMMENT '患者真实姓名',
-  `age` int(11) NOT NULL DEFAULT '' COMMENT '年龄',
-  `height` int(11) NOT NULL DEFAULT '' COMMENT '身高',
-  `weight` int(11) NOT NULL DEFAULT '' COMMENT '体重',
-  `bmi` int(11) NOT NULL DEFAULT '' COMMENT 'BMI指数',
+  `age` int(11) NOT NULL DEFAULT '0' COMMENT '年龄',
+  `height` int(11) NOT NULL DEFAULT '0' COMMENT '身高',
+  `weight` int(11) NOT NULL DEFAULT '0' COMMENT '体重',
+  `bmi` int(11) NOT NULL DEFAULT '0' COMMENT 'BMI指数',
   `smoke` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否吸烟',
   `drink` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否喝酒',
   `marry` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否已婚',
@@ -872,9 +872,12 @@ CREATE TABLE `litemall_doctors` (
   `hospital` varchar(127) NOT NULL COMMENT '收货具体地址',
   `department` varchar(127) NOT NULL COMMENT '收货具体地址',
   `description` varchar(255) NOT NULL DEFAULT '' COMMENT '个人详述',
-  `qualification` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否吸烟',
+  `qualification` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否有资质，1为有，0为无',
   `material` varchar(255) NOT NULL DEFAULT '' COMMENT '医生头像图片',
   `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否吸烟',
+  `add_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+  `deleted` tinyint(1) DEFAULT '0' COMMENT '逻辑删除',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='用户表';
 /*!40101 SET character_set_client = @saved_cs_client */;

@@ -8,6 +8,10 @@ import org.linlinjava.litemall.db.domain.UserVo;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import org.linlinjava.litemall.db.dao.LitemallPatientinfoMapper;
+import org.linlinjava.litemall.db.domain.LitemallPatientinfo;
+import org.linlinjava.litemall.db.domain.LitemallPatientinfoExample;
+
 import javax.annotation.Resource;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -16,6 +20,15 @@ import java.util.List;
 public class LitemallUserService {
     @Resource
     private LitemallUserMapper userMapper;
+    private LitemallPatientinfoMapper patientinfoMapper;
+
+    //用于获取患者信息，可以考虑更改前端的json格式。嵌套的records可能比较困难
+    public LitemallPatientinfo findpatientinfo(Integer userId)
+    {
+        LitemallPatientinfoExample example = new LitemallPatientinfoExample();
+        example.or().andUserIdEqualTo(userId).andDeletedEqualTo(false);
+        return patientinfoMapper.selectOneByExample(example);
+    }
 
     public LitemallUser findById(Integer userId) {
         return userMapper.selectByPrimaryKey(userId);
