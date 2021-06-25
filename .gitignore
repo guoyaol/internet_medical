@@ -3,6 +3,9 @@
 /build/
 !gradle/wrapper/gradle-wrapper.jar
 
+### substitution shell ###
+*subs*
+
 ### STS ###
 .settings/
 .apt_generated
@@ -17,7 +20,7 @@
 /.idea/
 /private/
 /storage/
-/litemall.iml
+/internetmedical.iml
 .checkstyle
 .idea
 *.iws

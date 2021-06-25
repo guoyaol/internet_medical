@@ -1,0 +1,79 @@
+{
+    "data": {
+        "list": [
+            {
+                "id": 1000000001,
+                "name": "晋旭阳",
+                "avatar": "/sample/skinDoctors/head1.png",
+                "mobile": "13183670990",
+                "gender": 1,
+                "address": "浙江省杭州市解放路88号",
+                "hospital": "浙江大学医学院附属第二医院",
+                "department": "皮肤科",
+                "description": "主任医师。主治范围：真菌病、病毒性和细菌性皮肤病、变应性皮肤病、红斑狼疮和硬皮病等结缔组织病。",
+                "qualification": 0,
+                "material": "/sample/doctor/valid_material.png",
+                "status": "1"
+            },
+    
+            {
+                "id": 1000000002,
+                "name": "林倚牟",
+                "avatar": "/sample/skinDoctors/head2.png",
+                "mobile": "13836701920",
+                "gender": 1,
+                "address": "浙江省杭州市庆春东路3号",
+                "hospital": "浙江大学医学院附属邵逸夫医院",
+                "department": "皮肤科",
+                "description": "副主任医师。对损容性皮肤病有颇深入的研究，在变应性皮肤病、药物疹和痤疮等皮肤附属器疾病方面，专业技术有相当造诣。",
+                "qualification": 1,
+                "material": "/sample/doctor/invalid_material.png",
+                "status": "0"
+            },
+            {
+                "id": 1000000003,
+                "name": "江龗",
+                "avatar": "/sample/skinDoctors/head3.png",
+                "mobile": "16182676990",
+                "gender": 1,
+                "address": "浙江省宁波市红星路8号",
+                "hospital": "南方医科大学南方医院",
+                "department": "皮肤科",
+                "description": "主任医师。擅长感染性皮肤病的防治，熟练应用各种皮肤美容技术，对重症皮肤病的诊疗有丰富的经验。",
+                "qualification": 0,
+                "material": "/sample/doctor/valid_material.png",
+                "status": "0"
+            },
+            {
+                "id": 1000000004,
+                "name": "郭宇轩",
+                "avatar": "/sample/skinDoctors/head4.png",
+                "mobile": "18888670661",
+                "gender": 1,
+                "address": "江苏省南京市胜利路21号",
+                "hospital": "北京大学第一医院",
+                "department": "皮肤科",
+                "description": "住院医师。主治医师，致力于皮肤病、皮肤病病理的探究有中西医结合在皮肤科领域的应用。",
+                "qualification": 0,
+                "material": "/sample/doctor/valid_material.png",
+                "status": "0"
+            },
+            {
+                "id": 1000000005,
+                "name": "罗晓钫",
+                "avatar": "/sample/skinDoctors/head5.png",
+                "mobile": "16283227194",
+                "gender": 1,
+                "address": "浙江省宁波市水港路66号",
+                "hospital": "浙江大学医学院附属第二医院",
+                "department": "皮肤科",
+                "description": "副主任医师。曾在国外进修面部和四肢整形，有丰富的临床阅历，先后从事皮肤病诊治，皮肤外科美容，皮肤激光美容，尤其善于钻研难治性皮肤美容杂症。",
+                "qualification": 0,
+                "material": "/sample/doctor/valid_material.png",
+                "status": "0"
+            }
+        ]
+    },
+    "errno": 0,
+    "errmsg": "成功"
+}

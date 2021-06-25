@@ -1,0 +1,87 @@
+{
+    "data": {
+        "limit": 20,
+        "list": [
+            {
+                "id": 2000000001,
+                "nickname": "Alice",
+                "avatar": "/sample/user/head3.jpeg",
+                "mobile": "13183670990",
+                "gender": 2,
+                "status": 0,
+                "birthday": "2003-03-12",
+                "record":{
+                    "name": "张三",
+                    "age": 18,
+                    "height": 158,
+                    "weight": 48,
+                    "bmi": 19,
+                    "smoke": "否",
+                    "drink": "否",
+                    "marry": "否",
+                    "child": "否",
+                    "chronic": "无",
+                    "allergy": "无",
+                    "desc": "我叫张三",
+                    "history":"2018年曾患重感冒\n2019年曾患寻麻疹"                }
+            },
+    
+            {
+                "id": 2000000002,
+                "nickname": "Bob",
+                "name": "李四",
+                "avatar": "/sample/user/head4.jpeg",
+                "mobile": "13836701920",
+                "gender": 1,
+                "status": 1,
+                "birthday": "2003-05-18",
+                "record":{
+                    "name": "李四",
+                    "age": 18,
+                    "height": 177,
+                    "weight": 67,
+                    "bmi": 21,
+                    "smoke": "否",
+                    "drink": "是",
+                    "marry": "否",
+                    "child": "否",
+                    "chronic": "哮喘",
+                    "allergy": "无",
+                    "desc": "我叫李四",
+                    "history": "一直很健康"
+                }
+            },
+
+            {
+                "id": 2000000002,
+                "nickname": "Cindy",
+                "name": "王五",
+                "avatar": "/sample/user/head5.jpeg",
+                "mobile": "13836767820",
+                "gender": 2,
+                "status": 0,
+                "birthday": "2003-06-02",
+                "record":{
+                    "name": "王五",
+                    "age": 18,
+                    "height": 170,
+                    "weight": 60,
+                    "bmi": 20,
+                    "smoke": "否",
+                    "drink": "否",
+                    "marry": "否",
+                    "child": "否",
+                    "chronic": "无",
+                    "allergy": "无",
+                    "desc": "我叫王五",
+                    "history": "2020年腿部骨折"
+                }
+            }
+        ],
+        "page": 1,
+        "pages": 1,
+        "total": 3
+    },
+    "errno": 0,
+    "errmsg": "成功"
+}

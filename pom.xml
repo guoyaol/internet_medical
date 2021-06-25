@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.linlinjava</groupId>
-    <artifactId>litemall</artifactId>
+    <artifactId>internetmedical</artifactId>
     <version>0.1.0</version>
     <packaging>pom</packaging>
 
@@ -20,39 +20,39 @@
     </properties>
 
     <modules>
-        <module>litemall-core</module>
-        <module>litemall-db</module>
-        <module>litemall-wx-api</module>
-        <module>litemall-admin-api</module>
-        <module>litemall-all</module>
-        <module>litemall-all-war</module>
+        <module>internetmedical-core</module>
+        <module>internetmedical-db</module>
+        <module>internetmedical-wx-api</module>
+        <module>internetmedical-admin-api</module>
+        <module>internetmedical-all</module>
+        <module>internetmedical-all-war</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.linlinjava</groupId>
-                <artifactId>litemall-core</artifactId>
+                <artifactId>internetmedical-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.linlinjava</groupId>
-                <artifactId>litemall-db</artifactId>
+                <artifactId>internetmedical-db</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.linlinjava</groupId>
-                <artifactId>litemall-wx-api</artifactId>
+                <artifactId>internetmedical-wx-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.linlinjava</groupId>
-                <artifactId>litemall-admin-api</artifactId>
+                <artifactId>internetmedical-admin-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.linlinjava</groupId>
-                <artifactId>litemall-all</artifactId>
+                <artifactId>internetmedical-all</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
