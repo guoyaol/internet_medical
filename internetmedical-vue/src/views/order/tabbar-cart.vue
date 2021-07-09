@@ -26,7 +26,7 @@
       </div>
     </van-checkbox-group>
 
-    <is-empty v-if="!goods.length">您的购物车空空如也~</is-empty>
+    <is-empty v-if="!goods.length">这里空空如也~</is-empty>
 
     <van-submit-bar
       style="bottom: 50px"

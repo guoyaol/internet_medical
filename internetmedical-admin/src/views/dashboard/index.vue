@@ -80,7 +80,7 @@ export default {
       // this.doctorTotal = response.data.data.doctorTotal
       // this.inquiryTotal = response.data.data.inquiryTotal
       this.userTotal = 3
-      this.doctorTotal = 2
+      this.doctorTotal = 7
       this.inquiryTotal = 0
       this.orderTotal = response.data.data.orderTotal
     })

@@ -1,7 +1,7 @@
 <template>
   <div>
     <van-cell-group>
-      <van-cell title="我的订单" isLink>
+      <van-cell title="药品订单" isLink>
         <router-link to="/user/order/list/0" class="text-desc">全部订单</router-link>
       </van-cell>
     </van-cell-group>
